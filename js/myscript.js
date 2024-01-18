@@ -5,6 +5,9 @@ let query2 = "https:api.pexels.com/v1/search?query=" + dog;
 const token = " brsev2z096sC494a9XarGS4nonLMX2kbrsW6sqb3Xsglt5qIGgmY5cGI";
 
 const fetchFunction = function (URL) {
+  const row = document.getElementById("img-row");
+  row.innerHTML = "";
+
   fetch(URL, {
     headers: {
       Authorization: token,
@@ -20,7 +23,6 @@ const fetchFunction = function (URL) {
     .then((imgs) => {
       console.log(imgs);
       imgs.photos.forEach((img, i) => {
-        const row = document.getElementById("img-row");
         const newCol = document.createElement("div");
         const card = document.createElement("div");
         newCol.classList.add("col", "col-md-4");
